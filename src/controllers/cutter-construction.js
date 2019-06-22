@@ -6,23 +6,22 @@ const { SENDGRID_KEY } = require("../secrets");
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
-      api_key:
-        "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"
+      api_key: process.env.SENDGRID_KEY || SENDGRID_KEY
     }
   })
 );
 
 exports.cutterConstruction = async (req, res, next) => {
-  const { name, email, message, subject, number } = req.body;
+  const { name, email, message, subject, phone } = req.body;
   try {
     const response = await transporter.sendMail({
       to: "95jacob07@gmail.com",
       from: email,
       subject: subject,
       html: `
-        <h3>${name},</h3>
+        <h3>Message from ${name}...</h3>
         <p>${message}</p>
-        <p>Phone number: ${number}</p> 
+        <p>Phone number: ${phone}</p> 
       `
     });
     res.status(200).json({
