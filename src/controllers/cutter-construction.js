@@ -1,12 +1,12 @@
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
 
-const { SENDGRID_KEY } = require("../secrets");
+// const { SENDGRID_KEY } = require("../secrets");
 
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
-      api_key: process.env.SENDGRID_KEY || SENDGRID_KEY
+      api_key: process.env.SENDGRID_KEY /* || SENDGRID_KEY */
     }
   })
 );
