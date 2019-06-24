@@ -3,6 +3,8 @@ const sendgridTransport = require("nodemailer-sendgrid-transport");
 
 // const { SENDGRID_KEY } = require("../secrets");
 
+const api_key = process.env.SENDGRID_KEY;
+
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
@@ -26,7 +28,7 @@ exports.cutterConstruction = async (req, res, next) => {
     });
     res.status(200).json({
       msg: "success",
-      response
+      response: API_KEY
     });
   } catch (error) {
     if (!error.statusCode) {
