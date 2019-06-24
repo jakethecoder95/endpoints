@@ -1,14 +1,11 @@
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
 
-// const { SENDGRID_KEY } = require("../secrets");
-
-const api_key = process.env.SENDGRID_KEY;
-
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
-      api_key: process.env.SENDGRID_KEY /* || SENDGRID_KEY */
+      api_key:
+        "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"
     }
   })
 );
@@ -28,7 +25,7 @@ exports.cutterConstruction = async (req, res, next) => {
     });
     res.status(200).json({
       msg: "success",
-      response: api_key
+      response
     });
   } catch (error) {
     if (!error.statusCode) {
