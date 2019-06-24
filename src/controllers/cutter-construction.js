@@ -28,7 +28,7 @@ exports.cutterConstruction = async (req, res, next) => {
     });
     res.status(200).json({
       msg: "success",
-      response: API_KEY
+      response: api_key
     });
   } catch (error) {
     if (!error.statusCode) {
