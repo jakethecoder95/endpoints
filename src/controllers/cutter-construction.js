@@ -25,7 +25,7 @@ exports.cutterConstruction = async (req, res, next) => {
     });
     res.status(200).json({
       msg: "success",
-      response: process.env.SENDGRID_KEY
+      response
     });
   } catch (error) {
     if (!error.statusCode) {
