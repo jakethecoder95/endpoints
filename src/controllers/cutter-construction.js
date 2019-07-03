@@ -14,7 +14,7 @@ exports.cutterConstruction = async (req, res, next) => {
   const { name, email, message, subject, phone } = req.body;
   try {
     const response = await transporter.sendMail({
-      to: "95jacob07@gmail.com",
+      to: "cuttercon11@gmail.com",
       from: email,
       subject: subject,
       html: `
